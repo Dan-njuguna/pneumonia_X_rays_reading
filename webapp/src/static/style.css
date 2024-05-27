@@ -1,0 +1,40 @@
+body {
+  font-family: sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#prediction {
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+}
