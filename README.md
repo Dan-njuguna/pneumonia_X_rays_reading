@@ -53,3 +53,57 @@
   - Train Vs. Validation Loss
   - Training Vs. Validation AUC
   - Confusion Matrix
+
+    1) Losses, AUC scores, Confusion Matrix
+      ![Confusion Matrix](Readme_Images/cm.png)
+
+    - From the above charts: The model is able to predict **50.80%** of True Positives(Testing Pneumonia positive) and **34.62%** of True negatives which results in the data being predicted having relatively high accuracy in the two classes. However, the percentage of false negatives is seemingly high which would result to an error.
+    - The training loss drops gradually then slowly.
+    - The validation loss is inconsistent.
+    - The Training AUC is inconsistent while the validation AUC is gently increasing.
+
+## Model Use
+
+- To use this model, you'll need to input the X-ray image of the chest that will be evaluated.
+- To access it locally:
+  - Clone this repository
+
+  ```bash
+  git clone https://github.com/Dan-njuguna/pneumonia_X_rays_reading.git
+  ```
+
+  - Cd into the repository
+  
+  ```bash
+  cd pneumonia_X_rays_reading
+  ```
+
+  - Install project requirements:
+
+  ```bash
+  # On your Bash Terminal, Ensure you have python3 and pip installed
+  pip install -r requirements.txt
+  ```
+
+  - Open the '.ipynb' file and run it to see your result.
+
+  ## Directories Arrangement
+
+```tree
+  pneumonia_X_rays_reading/
+  |-- Lib/models/
+  |-- Readme_Images/
+     |-- *.png, *jpeg
+  |-- Report/
+     |-- *.docx
+  |-- webapp/
+    |-- model/
+    |-- src/
+    |-- virtual/
+    |-- app.py
+    |-- .gitignore
+  |-- pneumonia_detection.ipynb
+  |-- README.md
+  |-- requirements.txt
+  |-- weights.keras
+```
