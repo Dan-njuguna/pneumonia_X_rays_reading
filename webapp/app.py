@@ -9,7 +9,8 @@ import io
 import re
 import tensorflow as tf
 
-tf.TF_ENABLE_ONEDNN_OPTS = 1
+# Enable OneDNN to make our model faster
+tf.TF_ENABLE_ONEDNN_OPTS = 0
 
 img_size = 100
 app = Flask(__name__)
@@ -17,7 +18,7 @@ app.config['TEMPLATES'] = "./src/templates" # Set templates directory
 app.config['STATIC'] = "./src/static"  # Set static files directory
 
 try:
-    model = load_model('model/pneumonia_x_rays_v1_0.h5')
+    model = load_model('./model/pneumonia_x_rays_v1_0.keras')
     print("Model loaded successfully!")
 
 except FileNotFoundError as e:
