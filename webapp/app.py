@@ -6,19 +6,18 @@ import base64
 import numpy as np
 from PIL import Image
 import io
-import re
+import os
 import tensorflow as tf
 
 # Enable OneDNN to make our model faster
-tf.TF_ENABLE_ONEDNN_OPTS = 0
+tf.TF_ENABLE_ONEDNN_OPTS = 1
 
+template_dir = os.path.abspath('webapp\\src\\templates')
 img_size = 100
-app = Flask(__name__)
-app.config['TEMPLATES'] = "./src/templates" # Set templates directory
-app.config['STATIC'] = "./src/static"  # Set static files directory
+app = Flask(__name__, template_folder = template_dir)
 
 try:
-    model = load_model('./model/pneumonia_x_rays_v1_0.keras')
+    model = load_model('C:\\Users\\njugu\\Coding\\pneumonia_X_rays_reading\\webapp\\model\\pneumonia_x_rays_v1_0.keras')
     print("Model loaded successfully!")
 
 except FileNotFoundError as e:
