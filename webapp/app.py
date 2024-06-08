@@ -1,5 +1,3 @@
-import sys
-import os
 from flask import Flask, render_template, request, jsonify
 from tensorflow.keras.models import load_model
 import cv2
@@ -7,6 +5,8 @@ import numpy as np
 from PIL import Image
 import io
 import base64
+import sys
+import os
 
 # Set default encoding to UTF-8
 sys.stdout.reconfigure(encoding='utf-8')
@@ -86,18 +86,17 @@ def predict():
 
         test_image = preprocess(image)
 
-        print(f"Input image shape: {test_image.shape}")  # Debugging information
-
         prediction = model.predict(test_image)
-        print(f"Prediction shape: {prediction.shape}")  # Debugging information
-        print(f"Prediction values: {prediction}")  # Debugging information
+        print(f"Prediction shape: {prediction.shape}")
+        print(f"Prediction values: {prediction}")
 
-        positive_probability = prediction[0][1]
-        negative_probability = prediction[0][0]
+        # Since the model returns a single probability value for the positive class
+        positive_probability = float(prediction[0][0])
+        negative_probability = 1.0 - positive_probability
 
         response = {
             'prediction': {
-                'result': label_dict[np.argmax(prediction, axis=1)[0]],
+                'result': label_dict[int(positive_probability > 0.5)],
                 'accuracy': positive_probability,
                 'negative_probability': negative_probability,
                 'positive_probability': positive_probability
