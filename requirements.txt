@@ -4,4 +4,5 @@ matplotlib
 seaborn
 numpy
 pandas
-PIL
+opencv-python
+Pillow
