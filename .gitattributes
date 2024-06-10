@@ -1,2 +1,2 @@
-*.keras filter=lfs diff=lfs merge=lfs
+*.hdf5 filter=lfs diff=lfs merge=lfs
 Readme_Images/* filter=lfs diff=lfs merge=lfs
