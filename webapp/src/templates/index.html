@@ -29,14 +29,14 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
     const inputFile = document.getElementById('input-file');
-    const previewImg = document.getElementById('preview-img');
+    const imgView = document.getElementById('img-view');
 
     inputFile.addEventListener('change', (event) => {
       const file = event.target.files[0];
       if (file) {
         const reader = new FileReader();
         reader.onload = (e) => {
-          previewImg.src = e.target.result;
+          imgView.innerHTML = `<img src="${e.target.result}" alt="Uploaded Image">`;
         };
         reader.readAsDataURL(file);
       }
@@ -93,6 +93,15 @@
                   y: {
                     beginAtZero: true,
                     max: 1 // Ensure the y-axis max is 1 for probability
+                  }
+                },
+                plugins: {
+                  title: {
+                    display: true,
+                    text: 'Prediction Results',
+                    font: {
+                      size: 18
+                    }
                   }
                 }
               }
