@@ -26,7 +26,7 @@ def load_model_once():
     """
     global model
     if model is None:
-        model = load_model('./model/pneumonia_x_rays_v1_0.keras')
+        model = load_model('./model/pneumonia_x_rays_v2_0.keras')
         print("Model loaded successfully!")
 
 label_dict = {0: "Pneumonia Negative", 1: "Pneumonia Positive"}
