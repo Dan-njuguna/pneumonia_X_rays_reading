@@ -14,8 +14,8 @@ sys.stdout.reconfigure(encoding='utf-8')
 # Set the environment variable to enable OneDNN optimizations
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '1'
 
-template_dir = os.path.abspath('/home/dan/Coding/pneumonia_X_rays_reading/webapp/src/templates')
-static_dir = os.path.abspath('/home/dan/Coding/pneumonia_X_rays_reading/webapp/src/static')
+template_dir = os.path.abspath('./src/templates')
+static_dir = os.path.abspath('./src/static')
 app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 
 model = None
@@ -26,7 +26,7 @@ def load_model_once():
     """
     global model
     if model is None:
-        model = load_model('/home/dan/Coding/pneumonia_X_rays_reading/webapp/model/pneumonia_x_rays_v1_0.keras')
+        model = load_model('./model/pneumonia_x_rays_v1_0.keras')
         print("Model loaded successfully!")
 
 label_dict = {0: "Pneumonia Negative", 1: "Pneumonia Positive"}
