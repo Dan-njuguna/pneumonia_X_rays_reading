@@ -1,6 +1,6 @@
 # PNEUMONIA X-RAY DETECTION
 
-![PNEUMONIA_X-RAY_IMAGE](Readme_Images/chest_x-ray.jpg)
+![PNEUMONIA_X-RAY_IMAGE](Readme_Images/chest_x-ray_image.jpg)
 
 ## Brief Background on Pneumonia
 
